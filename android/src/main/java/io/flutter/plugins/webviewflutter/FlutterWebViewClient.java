@@ -170,7 +170,7 @@ class FlutterWebViewClient {
         return FlutterWebViewClient.this.shouldOverrideUrlLoading(view, request);
       }
 
-        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+        /*@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
 
@@ -214,7 +214,7 @@ class FlutterWebViewClient {
             if (uri == null || !uri.getScheme().startsWith("http")) return null;
 
             return shouldInterceptRequest(view, uri.toString());
-        }
+        }*/
 
       @Override
       public void onPageStarted(WebView view, String url, Bitmap favicon) {

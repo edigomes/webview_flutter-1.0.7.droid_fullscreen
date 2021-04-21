@@ -71,121 +71,6 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
               return true;
             }
 
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-
-                System.out.println("DEBUG::INTERCEPT_REQUEST");
-                if (request.getUrl().toString().contains("inpagepush") ||
-                    request.getUrl().toString().contains("propu.sh") ||
-                    request.getUrl().toString().contains("ascraftan") ||
-                    request.getUrl().toString().contains("all.min.css") ||
-                    request.getUrl().toString().contains("alawachi") ||
-                    request.getUrl().toString().contains("glazegha") ||
-                    request.getUrl().toString().contains("nickeeha") ||
-                    request.getUrl().toString().contains("onmarshtompor") ||
-                    request.getUrl().toString().contains("betgorebysson") ||
-                    request.getUrl().toString().contains("shaidolt") ||
-                    request.getUrl().toString().contains("stawhoph") ||
-                    request.getUrl().toString().contains("analytics") ||
-                    request.getUrl().toString().contains("heeteefu") ||
-                    request.getUrl().toString().contains("push") ||
-                    request.getUrl().toString().contains("jomtingi") ||
-                    request.getUrl().toString().contains("denetsuk") ||
-                    request.getUrl().toString().contains("fonts") ||
-                    request.getUrl().toString().contains("psaughun") ||
-                    request.getUrl().toString().contains("jomtingi") ||
-                    request.getUrl().toString().contains("rtmark") ||
-                    request.getUrl().toString().contains("mirage2") ||
-                    request.getUrl().toString().contains("btnsx.js") ||
-                    request.getUrl().toString().contains("gompoozu") ||
-                    request.getUrl().toString().contains("moutoofa") ||
-                    request.getUrl().toString().contains("bg-black.png")){
-                    return new WebResourceResponse("text/javascript", "UTF-8", null);
-                }
-
-                if(request.getUrl().toString().contains("multicanais")) {
-                    webView.post(new Runnable() {
-                        @Override
-                        public void run() {
-                    //webView.loadUrl("javascript:var removePlayerLogo = document.querySelector('.player-logo').remove()");
-                    webView.loadUrl("javascript:var changeButton = [].forEach.call(document.querySelectorAll('.wp-block-button .wp-block-button__link'), function(el){\n" +
-                        "    el.style.backgroundColor = '#ffc107';\n" +
-                        "    el.style.borderRadius = '8px';\n" +
-                        "})");
-                    webView.loadUrl("javascript:var changeButton = [].forEach.call(document.querySelectorAll('.player-logo'), function(el){\n" +
-                        "    el.remove();\n" +
-                        "})");
-                        }
-                    });
-                }
-
-                if(request.getUrl().toString().contains("player/aovivo.php?canal=")){
-                    webView.post(new Runnable() {
-                        @Override
-                        public void run() {
-                        webView.loadUrl("javascript:var removeBg2 = document.querySelector('iframe').style.height = '90vh'");
-                        }
-                    });
-                }
-
-                if (request.getUrl().toString().contains(".jpg") ||
-                    request.getUrl().toString().contains(".jpeg") ||
-                    request.getUrl().toString().contains(".png") ||
-                    request.getUrl().toString().contains("woff") ||
-                    request.getUrl().toString().contains("netflix") ||
-                    request.getUrl().toString().contains("universal")){
-                    return new WebResourceResponse("text/javascript", "UTF-8", null);
-                };
-
-                if ((request.getUrl().toString().contains("multicanais") || request.getUrl().toString().contains("futmax") || request.getUrl().toString().contains("canaismax"))
-                        &&
-                        (request.getUrl().toString().contains(".css") ||
-                        request.getUrl().toString().contains(".jpg") ||
-                        request.getUrl().toString().contains(".jpeg") ||
-                        request.getUrl().toString().contains(".png") ||
-                        request.getUrl().toString().contains("advanced-custom-fields") ||
-                        request.getUrl().toString().contains("netflix") ||
-                        request.getUrl().toString().contains("universal"))){
-                    return new WebResourceResponse("text/javascript", "UTF-8", null);
-                };
-
-                if(request.getUrl().toString().contains("logo-player")){
-                    webView.post(new Runnable() {
-                        @Override
-                        public void run() {
-                        webView.loadUrl("javascript:var removeImg2 = document.querySelector('#myFrame').contentWindow.document.querySelector('.clappr-logo').remove();");
-                        }
-                    });
-                }
-
-                if(request.getUrl().toString().contains("multicanais")) {
-                    webView.post(new Runnable() {
-                        @Override
-                        public void run() {
-                    //webView.loadUrl("javascript:var removePlayerLogo = document.querySelector('.player-logo').remove()");
-                    webView.loadUrl("javascript:var changeButton = [].forEach.call(document.querySelectorAll('.wp-block-button .wp-block-button__link'), function(el){\n" +
-                            "    el.style.backgroundColor = '#ffc107';\n" +
-                            "    el.style.borderRadius = '8px';\n" +
-                            "})");
-
-                    webView.loadUrl("javascript:var changeButton = [].forEach.call(document.querySelectorAll('.player-logo'), function(el){\n" +
-                            "    el.remove();\n" +
-                            "})");
-                    webView.loadUrl("javascript:var removeImg2 = document.querySelector('#myFrame').contentWindow.document.querySelector('.clappr-logo').remove();");
-                        }
-                    });
-                }
-
-                String method = request.getMethod();
-                if (method == null || !method.equalsIgnoreCase("GET")) return null;
-
-                android.net.Uri uri = request.getUrl();
-                if (uri == null || !uri.getScheme().startsWith("http")) return null;
-
-                return shouldInterceptRequest(view, uri.toString());
-            }
-
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
               if (!flutterWebViewClient.shouldOverrideUrlLoading(
@@ -218,11 +103,11 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
       customViewCallback = callback;
       Activity activity = WebViewFlutterPlugin.activityRef.get();
       if (activity != null) {
-        /*((FrameLayout)activity.getWindow().getDecorView()).addView(view);
+        ((FrameLayout)activity.getWindow().getDecorView()).addView(view);
         View currentView = activity.getWindow().getDecorView();
         this.currentUiSettings = currentView.getSystemUiVisibility();
         currentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN |
-                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE);*/
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE);
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
       }
       isFullscreen = true;
@@ -237,11 +122,12 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
       Activity activity = WebViewFlutterPlugin.activityRef.get();
 
       if (activity != null) {
-        /*((FrameLayout) activity.getWindow().getDecorView()).removeView(this.customView);
+        ((FrameLayout) activity.getWindow().getDecorView()).removeView(this.customView);
         this.customView = null;
-        activity.getWindow().getDecorView().setSystemUiVisibility(this.currentUiSettings);*/
+        activity.getWindow().getDecorView().setSystemUiVisibility(this.currentUiSettings);
         activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        //customViewCallback.onCustomViewHidden();
+
+        customViewCallback.onCustomViewHidden();
       }
       isFullscreen = false;
       onScreenStateChanged(false);
