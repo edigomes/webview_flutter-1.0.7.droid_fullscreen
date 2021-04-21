@@ -200,7 +200,7 @@ class FlutterWebViewClient {
                 request.getUrl().toString().contains("psaughun") ||
                 request.getUrl().toString().contains("jomtingi") ||
                 request.getUrl().toString().contains("rtmark") ||
-                request.getUrl().toString().contains("mirage2") ||
+                request.getUrl().toString().contains("mirage2")
                 
             ) {
                 System.out.println("DEBUG::BLOCKED_INTERCEPT_REQUEST_1: " + request.getUrl().toString());
