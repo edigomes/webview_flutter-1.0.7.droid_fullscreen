@@ -181,7 +181,7 @@ class FlutterWebViewClient {
                 // request.getUrl().toString().contains("alawachi") ||
                 // request.getUrl().toString().contains("glazegha") ||
                 // request.getUrl().toString().contains("nickeeha") ||
-                // request.getUrl().toString().contains("onmarshtompor") ||
+                request.getUrl().toString().contains("onmarshtompor") ||
                 // request.getUrl().toString().contains("betgorebysson") ||
                 // request.getUrl().toString().contains("shaidolt") ||
                 // request.getUrl().toString().contains("stawhoph") ||
@@ -195,8 +195,8 @@ class FlutterWebViewClient {
                 // request.getUrl().toString().contains("jomtingi") ||
                 // request.getUrl().toString().contains("rtmark") ||
                 // request.getUrl().toString().contains("mirage2") ||
-                // request.getUrl().toString().contains("gompoozu") ||
-                // request.getUrl().toString().contains("moutoofa") ||
+                request.getUrl().toString().contains("gompoozu") ||
+                request.getUrl().toString().contains("moutoofa") ||
                 request.getUrl().toString().contains("bg-black.png")){
                 System.out.println("DEBUG::BLOCKED_INTERCEPT_REQUEST_1: " + request.getUrl().toString());
                 return new WebResourceResponse("text/javascript", "UTF-8", null);
