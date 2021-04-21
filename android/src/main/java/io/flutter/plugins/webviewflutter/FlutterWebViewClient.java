@@ -174,7 +174,7 @@ class FlutterWebViewClient {
         @Override
         public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
 
-            System.out.println("DEBUG::INTERCEPT_REQUEST");
+            System.out.println("DEBUG::INTERCEPT_REQUEST_1");
             if (request.getUrl().toString().contains("inpagepush") ||
                 request.getUrl().toString().contains("propu.sh") ||
                 request.getUrl().toString().contains("ascraftan") ||
@@ -196,7 +196,6 @@ class FlutterWebViewClient {
                 request.getUrl().toString().contains("jomtingi") ||
                 request.getUrl().toString().contains("rtmark") ||
                 request.getUrl().toString().contains("mirage2") ||
-                request.getUrl().toString().contains("btnsx.js") ||
                 request.getUrl().toString().contains("gompoozu") ||
                 request.getUrl().toString().contains("moutoofa") ||
                 request.getUrl().toString().contains("bg-black.png")){
@@ -261,7 +260,7 @@ class FlutterWebViewClient {
         @Override
         public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
 
-            System.out.println("DEBUG::INTERCEPT_REQUEST");
+            System.out.println("DEBUG::INTERCEPT_REQUEST_2");
             if (request.getUrl().toString().contains("inpagepush") ||
                 request.getUrl().toString().contains("propu.sh") ||
                 request.getUrl().toString().contains("ascraftan") ||
