@@ -174,6 +174,7 @@ class FlutterWebViewClient {
         @Override
         public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
 
+            System.out.println("DEBUG::INTERCEPT_REQUEST_1: " + request.getUrl().toString());
             if (
                 // request.getUrl().toString().contains("inpagepush") ||
                 // request.getUrl().toString().contains("propu.sh") ||
