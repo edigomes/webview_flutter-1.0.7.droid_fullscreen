@@ -213,7 +213,7 @@ class FlutterWebViewClient {
             android.net.Uri uri = request.getUrl();
             if (uri == null || !uri.getScheme().startsWith("http")) return null;
 
-            return shouldInterceptRequest(view, request);
+            return shouldInterceptRequest(view, uri.toString());
         }
 
       @Override
