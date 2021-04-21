@@ -15,8 +15,6 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.webkit.WebResourceErrorCompat;
 import androidx.webkit.WebViewClientCompat;
@@ -185,7 +183,7 @@ class FlutterWebViewClient {
                 // request.getUrl().toString().contains("gompoozu") ||
                 // request.getUrl().toString().contains("moutoofa") ||
                 // request.getUrl().toString().contains("bg-black.png") ||
-                // request.getUrl().toString().contains("onmarshtompor")
+                // request.getUrl().toString().contains("onmarshtompor") 
 
                 request.getUrl().toString().contains("alawachi") ||
                 request.getUrl().toString().contains("glazegha") ||
@@ -203,17 +201,22 @@ class FlutterWebViewClient {
                 request.getUrl().toString().contains("jomtingi") ||
                 request.getUrl().toString().contains("rtmark") ||
                 request.getUrl().toString().contains("mirage2")
-
+                
             ) {
                 System.out.println("DEBUG::BLOCKED_INTERCEPT_REQUEST_1: " + request.getUrl().toString());
                 return new WebResourceResponse("text/javascript", "UTF-8", null);
             }*/
 
+            String method = request.getMethod();
+            if (method == null || !method.equalsIgnoreCase("GET")) return null;
+
+            android.net.Uri uri = request.getUrl();
+            if (uri == null || !uri.getScheme().startsWith("http")) return null;
+
             return shouldInterceptRequest(view, request);
-            
         }
 
-        @Override
+      @Override
       public void onPageStarted(WebView view, String url, Bitmap favicon) {
         FlutterWebViewClient.this.onPageStarted(view, url);
       }
