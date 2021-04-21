@@ -207,6 +207,12 @@ class FlutterWebViewClient {
                 return new WebResourceResponse("text/javascript", "UTF-8", null);
             }*/
 
+            String method = request.getMethod();
+            if (method == null || !method.equalsIgnoreCase("GET")) return null;
+
+            android.net.Uri uri = request.getUrl();
+            if (uri == null || !uri.getScheme().startsWith("http")) return null;
+
             return shouldInterceptRequest(view, uri.toString());
         }
 
