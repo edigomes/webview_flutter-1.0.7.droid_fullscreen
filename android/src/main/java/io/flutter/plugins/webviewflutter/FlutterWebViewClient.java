@@ -170,12 +170,12 @@ class FlutterWebViewClient {
         return FlutterWebViewClient.this.shouldOverrideUrlLoading(view, request);
       }
 
-        /*@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
 
             System.out.println("DEBUG::INTERCEPT_REQUEST_1: " + request.getUrl().toString());
-            if (
+            /*if (
                 // request.getUrl().toString().contains("inpagepush") ||
                 // request.getUrl().toString().contains("propu.sh") ||
                 // request.getUrl().toString().contains("ascraftan") ||
@@ -205,16 +205,10 @@ class FlutterWebViewClient {
             ) {
                 System.out.println("DEBUG::BLOCKED_INTERCEPT_REQUEST_1: " + request.getUrl().toString());
                 return new WebResourceResponse("text/javascript", "UTF-8", null);
-            }
-
-            String method = request.getMethod();
-            if (method == null || !method.equalsIgnoreCase("GET")) return null;
-
-            android.net.Uri uri = request.getUrl();
-            if (uri == null || !uri.getScheme().startsWith("http")) return null;
+            }*/
 
             return shouldInterceptRequest(view, uri.toString());
-        }*/
+        }
 
       @Override
       public void onPageStarted(WebView view, String url, Bitmap favicon) {
