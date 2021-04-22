@@ -18,6 +18,7 @@ import android.webkit.PermissionRequest;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
+import android.webkit.WebSettings;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -170,8 +171,22 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
 
     platformThreadHandler = new Handler(context.getMainLooper());
     // Allow local storage.
+    /*webView.getSettings().setDomStorageEnabled(true);
+    webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);*/
+
+    webView.getSettings().setJavaScriptEnabled(true);
+    webView.getSettings().setSaveFormData(true);
+    webView.getSettings().setAllowFileAccessFromFileURLs(true);
+    webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
+    webView.getSettings().setSupportZoom(false);
+    webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
     webView.getSettings().setDomStorageEnabled(true);
-    webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+    webView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
+
+    webView.getSettings().setLoadWithOverviewMode(true);
+
+    webView.getSettings().setEnableSmoothTransition(true);
+    webView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
 
     // Multi windows is set with FlutterWebChromeClient by default to handle internal bug: b/159892679.
     webView.getSettings().setSupportMultipleWindows(true);

@@ -7,6 +7,7 @@ package io.flutter.plugins.webviewflutter;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -163,90 +164,91 @@ class FlutterWebViewClient {
   }
 
   private WebViewClient internalCreateWebViewClient() {
-    return new WebViewClient() {
-      @TargetApi(Build.VERSION_CODES.N)
-      @Override
-      public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-        return FlutterWebViewClient.this.shouldOverrideUrlLoading(view, request);
-      }
-
-      @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-      @Override
-      public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-
-          System.out.println("DEBUG::INTERCEPT_REQUEST_1: " + request.getUrl().toString());
-          if (
-              request.getUrl().toString().contains("inpagepush") ||
-              request.getUrl().toString().contains("propu") ||
-              request.getUrl().toString().contains("ascraftan") ||
-              request.getUrl().toString().contains("all.min.css") ||
-              request.getUrl().toString().contains("gompoozu") ||
-              request.getUrl().toString().contains("moutoofa") ||
-              request.getUrl().toString().contains("bg-black.png") ||
-              request.getUrl().toString().contains("onmarshtompor") ||
-              request.getUrl().toString().contains("alawachi") ||
-              request.getUrl().toString().contains("glazegha") ||
-              request.getUrl().toString().contains("nickeeha") ||
-              request.getUrl().toString().contains("betgorebysson") ||
-              request.getUrl().toString().contains("shaidolt") ||
-              request.getUrl().toString().contains("stawhoph") ||
-              request.getUrl().toString().contains("analytics") ||
-              request.getUrl().toString().contains("heeteefu") ||
-              request.getUrl().toString().contains("push") ||
-              request.getUrl().toString().contains("jomtingi") ||
-              request.getUrl().toString().contains("denetsuk") ||
-              request.getUrl().toString().contains("fonts") ||
-              request.getUrl().toString().contains("psaughun") ||
-              request.getUrl().toString().contains("jomtingi") ||
-              request.getUrl().toString().contains("rtmark") ||
-              request.getUrl().toString().contains("mirage2")
-              
-          ) {
-              System.out.println("DEBUG::BLOCKED_INTERCEPT_REQUEST_1: " + request.getUrl().toString());
-              return new WebResourceResponse("text/javascript", "UTF-8", null);
+      WebViewClient webview = new WebViewClient() {
+          @TargetApi(Build.VERSION_CODES.N)
+          @Override
+          public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+              return FlutterWebViewClient.this.shouldOverrideUrlLoading(view, request);
           }
 
-          String method = request.getMethod();
-          if (method == null || !method.equalsIgnoreCase("GET")) return null;
+          @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+          @Override
+          public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
 
-          android.net.Uri uri = request.getUrl();
-          if (uri == null || !uri.getScheme().startsWith("http")) return null;
+              System.out.println("DEBUG::INTERCEPT_REQUEST_1: " + request.getUrl().toString());
+              if (
+                  request.getUrl().toString().contains("inpagepush") ||
+                      request.getUrl().toString().contains("propu") ||
+                      request.getUrl().toString().contains("ascraftan") ||
+                      request.getUrl().toString().contains("all.min.css") ||
+                      request.getUrl().toString().contains("gompoozu") ||
+                      request.getUrl().toString().contains("moutoofa") ||
+                      request.getUrl().toString().contains("bg-black.png") ||
+                      request.getUrl().toString().contains("onmarshtompor") ||
+                      request.getUrl().toString().contains("alawachi") ||
+                      request.getUrl().toString().contains("glazegha") ||
+                      request.getUrl().toString().contains("nickeeha") ||
+                      request.getUrl().toString().contains("betgorebysson") ||
+                      request.getUrl().toString().contains("shaidolt") ||
+                      request.getUrl().toString().contains("stawhoph") ||
+                      request.getUrl().toString().contains("analytics") ||
+                      request.getUrl().toString().contains("heeteefu") ||
+                      request.getUrl().toString().contains("push") ||
+                      request.getUrl().toString().contains("jomtingi") ||
+                      request.getUrl().toString().contains("denetsuk") ||
+                      request.getUrl().toString().contains("fonts") ||
+                      request.getUrl().toString().contains("psaughun") ||
+                      request.getUrl().toString().contains("jomtingi") ||
+                      request.getUrl().toString().contains("rtmark") ||
+                      request.getUrl().toString().contains("mirage2")
 
-          return super.shouldInterceptRequest(view, request);
+              ) {
+                  System.out.println("DEBUG::BLOCKED_INTERCEPT_REQUEST_1: " + request.getUrl().toString());
+                  return new WebResourceResponse("text/javascript", "UTF-8", null);
+              }
 
-      }
+              String method = request.getMethod();
+              if (method == null || !method.equalsIgnoreCase("GET")) return null;
 
-      @Override
-      public void onPageStarted(WebView view, String url, Bitmap favicon) {
-        FlutterWebViewClient.this.onPageStarted(view, url);
-      }
+              Uri uri = request.getUrl();
+              if (uri == null || !uri.getScheme().startsWith("http")) return null;
 
-      @Override
-      public void onPageFinished(WebView view, String url) {
-        FlutterWebViewClient.this.onPageFinished(view, url);
-      }
+              return super.shouldInterceptRequest(view, request);
 
-      @TargetApi(Build.VERSION_CODES.M)
-      @Override
-      public void onReceivedError(
-          WebView view, WebResourceRequest request, WebResourceError error) {
-        FlutterWebViewClient.this.onWebResourceError(
-            error.getErrorCode(), error.getDescription().toString(), request.getUrl().toString());
-      }
+          }
 
-      @Override
-      public void onReceivedError(
-          WebView view, int errorCode, String description, String failingUrl) {
-        FlutterWebViewClient.this.onWebResourceError(errorCode, description, failingUrl);
-      }
+          @Override
+          public void onPageStarted(WebView view, String url, Bitmap favicon) {
+              FlutterWebViewClient.this.onPageStarted(view, url);
+          }
 
-      @Override
-      public void onUnhandledKeyEvent(WebView view, KeyEvent event) {
-        // Deliberately empty. Occasionally the webview will mark events as having failed to be
-        // handled even though they were handled. We don't want to propagate those as they're not
-        // truly lost.
-      }
-    };
+          @Override
+          public void onPageFinished(WebView view, String url) {
+              FlutterWebViewClient.this.onPageFinished(view, url);
+          }
+
+          @TargetApi(Build.VERSION_CODES.M)
+          @Override
+          public void onReceivedError(
+              WebView view, WebResourceRequest request, WebResourceError error) {
+              FlutterWebViewClient.this.onWebResourceError(
+                  error.getErrorCode(), error.getDescription().toString(), request.getUrl().toString());
+          }
+
+          @Override
+          public void onReceivedError(
+              WebView view, int errorCode, String description, String failingUrl) {
+              FlutterWebViewClient.this.onWebResourceError(errorCode, description, failingUrl);
+          }
+
+          @Override
+          public void onUnhandledKeyEvent(WebView view, KeyEvent event) {
+              // Deliberately empty. Occasionally the webview will mark events as having failed to be
+              // handled even though they were handled. We don't want to propagate those as they're not
+              // truly lost.
+          }
+      };
+      return webview;
   }
 
   private WebViewClientCompat internalCreateWebViewClientCompat() {
