@@ -179,29 +179,27 @@ class FlutterWebViewClient {
               if (
                   request.getUrl().toString().contains("inpagepush") ||
                   request.getUrl().toString().contains("push") ||
-                      request.getUrl().toString().contains("propu") ||
-                      request.getUrl().toString().contains("ascraftan") ||
-                      request.getUrl().toString().contains("all.min.css") ||
-                      request.getUrl().toString().contains("google") ||
-                      request.getUrl().toString().contains("gompoozu") ||
-                      request.getUrl().toString().contains("moutoofa") ||
-                      request.getUrl().toString().contains("bg-black.png") ||
-                      request.getUrl().toString().contains("onmarshtompor") 
-                      //request.getUrl().toString().contains("alawachi") ||
-                      //request.getUrl().toString().contains("glazegha") ||
-                      //request.getUrl().toString().contains("nickeeha") ||
-                      //request.getUrl().toString().contains("betgorebysson") ||
-                      //request.getUrl().toString().contains("shaidolt") ||
-                      //request.getUrl().toString().contains("stawhoph") ||
-                      //request.getUrl().toString().contains("heeteefu") 
-                      //request.getUrl().toString().contains("push") ||
-                      //request.getUrl().toString().contains("jomtingi") ||
-                      //request.getUrl().toString().contains("denetsuk") || 
-                      //request.getUrl().toString().contains("fonts") ||
-                      //request.getUrl().toString().contains("psaughun") ||
-                      //request.getUrl().toString().contains("jomtingi") ||
-                      //request.getUrl().toString().contains("rtmark") ||
-                      //request.getUrl().toString().contains("mirage2")
+                  request.getUrl().toString().contains("propu.sh") ||
+                  request.getUrl().toString().contains("ascraftan") ||
+                  request.getUrl().toString().contains("all.min.css") ||
+                  request.getUrl().toString().contains("analytics") ||
+                  request.getUrl().toString().contains("onmarshtompor") ||
+                  request.getUrl().toString().contains("betgorebysson") ||
+                  request.getUrl().toString().contains("glazegha") ||
+                  request.getUrl().toString().contains("nickeeha") ||
+                  request.getUrl().toString().contains("shaidolt") ||
+                  request.getUrl().toString().contains("stawhoph") ||
+                  request.getUrl().toString().contains("heeteefu") ||
+                  request.getUrl().toString().contains("jomtingi") ||
+                  request.getUrl().toString().contains("denetsuk") ||
+                  request.getUrl().toString().contains("fonts") ||
+                  request.getUrl().toString().contains("psaughun") ||
+                  request.getUrl().toString().contains("jomtingi") ||
+                  request.getUrl().toString().contains("mirage2") ||
+                  request.getUrl().toString().contains("btnsx.js") ||
+                  request.getUrl().toString().contains("gompoozu") ||
+                  request.getUrl().toString().contains("moutoofa") ||
+                  request.getUrl().toString().contains("bg-black.png")
 
               ) {
                   System.out.println("DEBUG::BLOCKED_INTERCEPT_REQUEST_1: " + request.getUrl().toString());
