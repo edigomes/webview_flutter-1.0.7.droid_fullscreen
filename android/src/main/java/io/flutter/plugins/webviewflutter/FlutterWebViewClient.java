@@ -192,19 +192,19 @@ class FlutterWebViewClient {
                       request.getUrl().toString().contains("shaidolt") ||
                       request.getUrl().toString().contains("stawhoph") ||
                       request.getUrl().toString().contains("analytics") ||
-                      request.getUrl().toString().contains("heeteefu") ||
-                      request.getUrl().toString().contains("push") ||
-                      request.getUrl().toString().contains("jomtingi") ||
-                      request.getUrl().toString().contains("denetsuk") ||
-                      request.getUrl().toString().contains("fonts") ||
-                      request.getUrl().toString().contains("psaughun") ||
-                      request.getUrl().toString().contains("jomtingi") ||
-                      request.getUrl().toString().contains("rtmark") ||
-                      request.getUrl().toString().contains("mirage2")
+                      //request.getUrl().toString().contains("heeteefu") ||
+                      //request.getUrl().toString().contains("push") ||
+                      //request.getUrl().toString().contains("jomtingi") ||
+                      //request.getUrl().toString().contains("denetsuk") ||
+                      //request.getUrl().toString().contains("fonts") ||
+                      //request.getUrl().toString().contains("psaughun") ||
+                      //request.getUrl().toString().contains("jomtingi") ||
+                      //request.getUrl().toString().contains("rtmark") ||
+                      //request.getUrl().toString().contains("mirage2")
 
               ) {
                   System.out.println("DEBUG::BLOCKED_INTERCEPT_REQUEST_1: " + request.getUrl().toString());
-                  //return new WebResourceResponse("text/javascript", "UTF-8", null);
+                  return new WebResourceResponse("application/octet-stream", "UTF-8", null);
               }
 
               String method = request.getMethod();
