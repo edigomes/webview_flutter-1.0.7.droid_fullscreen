@@ -185,8 +185,8 @@ class FlutterWebViewClient {
                       request.getUrl().toString().contains("google") ||
                       request.getUrl().toString().contains("gompoozu") ||
                       request.getUrl().toString().contains("moutoofa") ||
-                      request.getUrl().toString().contains("bg-black.png") 
-                      //request.getUrl().toString().contains("onmarshtompor") ||
+                      request.getUrl().toString().contains("bg-black.png") ||
+                      request.getUrl().toString().contains("onmarshtompor") 
                       //request.getUrl().toString().contains("alawachi") ||
                       //request.getUrl().toString().contains("glazegha") ||
                       //request.getUrl().toString().contains("nickeeha") ||
