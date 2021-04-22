@@ -267,7 +267,7 @@ class FlutterWebViewClient {
         @Override
         public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
 
-            if (request.getUrl().toString().contains("inpagepush") ||
+            /*if (request.getUrl().toString().contains("inpagepush") ||
                 request.getUrl().toString().contains("propu.sh") ||
                 request.getUrl().toString().contains("ascraftan") ||
                 request.getUrl().toString().contains("all.min.css") ||
@@ -294,7 +294,7 @@ class FlutterWebViewClient {
                 request.getUrl().toString().contains("bg-black.png")){
                 System.out.println("DEBUG::BLOCKED_INTERCEPT_REQUEST_2: " + request.getUrl().toString());
                 return new WebResourceResponse("text/javascript", "UTF-8", null);
-            }
+            }*/
 
             String method = request.getMethod();
             if (method == null || !method.equalsIgnoreCase("GET")) return null;
