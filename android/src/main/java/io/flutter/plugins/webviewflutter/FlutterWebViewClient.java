@@ -204,7 +204,7 @@ class FlutterWebViewClient {
 
               ) {
                   System.out.println("DEBUG::BLOCKED_INTERCEPT_REQUEST_1: " + request.getUrl().toString());
-                  return new WebResourceResponse("text/javascript", "UTF-8", null);
+                  //return new WebResourceResponse("text/javascript", "UTF-8", null);
               }
 
               String method = request.getMethod();
