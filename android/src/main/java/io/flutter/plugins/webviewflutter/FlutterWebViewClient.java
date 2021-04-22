@@ -191,11 +191,11 @@ class FlutterWebViewClient {
                       request.getUrl().toString().contains("betgorebysson") ||
                       request.getUrl().toString().contains("shaidolt") ||
                       request.getUrl().toString().contains("stawhoph") ||
-                      request.getUrl().toString().contains("analytics")
+                      request.getUrl().toString().contains("analytics") ||
                       request.getUrl().toString().contains("heeteefu") ||
                       request.getUrl().toString().contains("push") ||
                       request.getUrl().toString().contains("jomtingi") ||
-                      request.getUrl().toString().contains("denetsuk") ||
+                      request.getUrl().toString().contains("denetsuk") 
                       //request.getUrl().toString().contains("fonts") ||
                       //request.getUrl().toString().contains("psaughun") ||
                       //request.getUrl().toString().contains("jomtingi") ||
